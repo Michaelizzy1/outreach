@@ -1,0 +1,137 @@
+{% extends 'missions/base.html' %}
+{% load static %}
+
+{% block site_css %}
+ <link rel="stylesheet" href="{% static 'missions/styles/stye.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+
+<h3>This page is working nice and well</h3>
+
+
+{% for image in images %}
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{image.url}}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/izz.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/i.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+{% endfor %}
+<p></p>
+
+
+
+<a href="{% url 'media' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/media.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <b>
+    <h5 class="middle">Media Resource</h5>
+    <p class="middle">Get to know more About our upcoming programs and outreach</p>
+    </b>
+  </div>
+</div>
+  </a><br>
+
+<a href="{% url 'sermon' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/sermon.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <h5 class="card-title">Sermons</h5>
+    <p class="card-text">Listen and Download Evangelist Emma Ibrahim Sermons</p>
+  </div>
+</div>
+  </a><br>
+
+<a href="{% url 'discipleship' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/disciple.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <b>
+    <h5 class="middle">Discipleship Class</h5>
+    <p class="middle">Want to Get connected to God and Grow more in the faith. Join our discipleship class</p>
+    </b>
+  </div>
+</div>
+  </a><br>
+
+<a href="{% url 'testimony' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/testimony.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <b>
+    <h5 class="middle">Testimony</h5>
+    <p class="middle">Share your testimony of what God has done for you through the mission</p>
+    </b>
+  </div>
+</div>
+  </a><br>
+
+<a href="{% url 'donate' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/donate.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <b>
+    <h5 class="middle">Donate</h5>
+    <p class="middle">Support God work and God would bless you immensely. God loves a cheerful giver</p>
+    </b>
+  </div>
+</div>
+  </a><br>
+
+<a href="{% url 'about' %}">
+    <div class="card bg-dark text-white">
+  <img src="{% static 'images/about.jpg' %}" class="card-img" alt="...">
+  <div class="card-img-overlay">
+    <b>
+    <h5 class="middle">About Us</h5>
+    <p class="middle">Get to Know Evangelist Emma Ibrahim and the mandate God has given Him to this generation, to Africa and the World at large</p>
+    </b>
+  </div>
+</div>
+  </a><br>
+</div>
+
+<section>
+  <form method="post" action="">
+  <div class="container">
+    <div class="text-center">
+    <h3>Drop a Message</h3>
+    </div>
+    <div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" >NAME</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+</div>
+    <div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" >LOCATION</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+</div>
+    <div class="form-floating">
+  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+  <label for="floatingTextarea2">Message</label>
+</div><br>
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" type="submit">Send</button>
+
+</div>
+
+  </div>
+ </form>
+</section>
+<hr>
+
+
+
+{% endblock content %}

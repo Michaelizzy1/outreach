@@ -1,0 +1,85 @@
+{% extends 'missions/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<p></p>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="" class="d-block w-100" alt="...">
+    </div>
+    {% for image in images %}
+    <div class="carousel-item">
+      <img src="{{image.display.url}}" class="d-block w-100" alt="...">
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<section class="container text-center">
+  <h3>Welcome</h3>
+
+  <hr> <br>
+  <div class="row">
+   {% for item in items %}
+    <div class="col-md-3 mb-3">
+      <a href="/{{item.url_name}}">
+        <div class="card">
+          <img class="card-img-top" src="{{item.image.url}}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              {{item.title}}
+            </h5>
+              <p>{{item.description}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+   {% endfor %}
+  </div>
+
+</section>
+
+<p></p>
+<p></p>
+
+
+  <div class="container">
+    <div class="text-center">
+    <h3>Drop a Message</h3>
+    </div>
+
+<section class="blue">
+    <form method="POST" action="">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">NAME: </label>
+          {{form.name}}
+<!--      <input type="text" class="form-control">-->
+    </div>
+    <div class="mb-3">
+  <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">LOCATION: </label>
+          {{form.location}}
+<!--      <input type="text" class="form-control">-->
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">MESSAGE: </label>
+          {{form.message}}
+<!--      <input type="text" class="form-control">-->
+    </div>
+    <div class="mb-3">
+    <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" type="submit">Send</button>
+
+</div>
+
+  </div>
+    </div>
+ </form>
+</section>
+<hr>
+
+{% endblock %}
