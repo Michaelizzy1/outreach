@@ -52,3 +52,7 @@ class Heading(models.Model):
     description = models.TextField()
     image = models.ImageField()
     url_name = models.CharField(max_length=20)
+
+
+class Defaultpic(models.Model):
+    image = models.ImageField()

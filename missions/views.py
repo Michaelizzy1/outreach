@@ -98,6 +98,7 @@ def download(request, id):
 def home(request):
     items = Heading.objects.all()
     images = Photos.objects.all()
+    pic = Defaultpic.objects.all()
     form = MessageForm()
     if request.method == 'POST':
         form = MessageForm(request.POST)
@@ -108,5 +109,6 @@ def home(request):
         'items':items,
         'form':form,
         'images':images,
+        'pic':pic,
     }
     return render(request, 'missions/home.html', context)
